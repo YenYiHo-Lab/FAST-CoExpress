@@ -39,28 +39,26 @@ $$
 where $\eta_k$ is a link function ensuring the $k^{\text{th}}$ parameter does not stray outside its domain and $S_k$ is a subset of $\{1,\dots, s\}$ reflecting the elements of $\boldsymbol{x}$ which the $k^{\text{th}}$ parameter is to be made dependent on. 
 
 
-## Usage
+## Fitting Function
 
-The fitting function for the FAST-CoExpress model with negative binomial marginals is called `FAST.CoExpress.nb` and is contained in the `FAST_CoExpress_NB.R` folder of this repository. For the negative binomial case, we have  $\eta_k = \log$ for $k=1,\dots,4$. 
+The fitting function for the FAST-CoExpress model with negative binomial marginals is called `FAST.CoExpress.nb` and is contained in the `FAST_CoExpress_functions.R` folder of this repository. For the negative binomial case, we have  $\eta_k = \log$ for $k=1,\dots,4$. 
 
 The function works as follows:
 
 ```{r}
-FAST.CoExpress.nb(formula,
-                  copula,
-                  data)
+FAST.CoExpress.nb(formula, copula, data)
 ```
 Parameters:
-* `formula`: A list of five formulas specifying the covariate-dependence of the different parameters.
+* `formula`: A list of five formula objects specifying the covariate-dependence of the different parameters.
+  * `[[1]]`: Covariate-dependence of $\mu_1$.
+  * `[[2]]`: Covariate-dependence of $\mu_2$.
+  * `[[3]]`: Covariate-dependence of $\sigma_1$ and $p_1$.
+  * `[[4]]`: Covariate-dependence of $\sigma_2$ and $p_2$.
+  * `[[5]]`: Covariate-dependence of $\rho$.
 * `copula`: A string specifying one of the following copulas: "Gaussian", "Frank", "Gumbel", "Joe", "Clayton".
 * `data`: A data.frame whose column names correspond to the variables referenced in the formula list.
 
-where the 5 elements of the `formula` list are:
-* `eq1`: Formula object specifying the covariate-dependence of $\mu_1$.
-* `eq2`: Formula object specifying the covariate-dependence of $\mu_2$.
-* `eq3`: Formula object specifying the covariate-dependence of $\sigma_1$ and $p_1$.
-* `eq4`: Formula object specifying the covariate-dependence of $\sigma_2$ and $p_2$.
-* `eq5`: Formula object specifying the covariate-dependence of $\rho$.
+
 
 The output is a list containing coefficient estimates, standard errors, and p-values, along with the value of the log-likelihood of the fitted model and the variance-covariance matrix of the coefficients.
 
@@ -69,8 +67,56 @@ The output is a list containing coefficient estimates, standard errors, and p-va
 We conducted simulation studies on the coverage, power, and robustness of the FAST-CoExpress method with negative binomial marginals and a Gaussian copula. These studies can be found in the `simulations` folder of this repository.
 
 
+## Example Usage
 
+```{r}
+source("/path/to/FAST_CoExpress_functions.R")
+library(dplyr)
 
+n <- 5000
+
+## true coefficient values ##
+beta1_use <- c(2, 0.1, -0.2, -0.05)
+beta2_use <- c(1, -0.05, 0.3, -0.1)
+alpha1_use <- c(-0.3, 0.6)
+alpha2_use <- c(-1.1, 0.7)
+tau_use <- c(-0.4, 0.2, 1, -0.25)
+kappa1_use <- c(-2, 1)
+kappa2_use <- c(-1, -2)
+
+## generate covariates ##
+x1 <- runif(n, 0, 5)
+x2 <- rbinom(n=n, size=1, prob=0.59)
+x3 <- x1*x2
+
+## calculate parameter values ##
+mu1.true <- (cbind(1,x1,x2,x3) %*% beta1_use) %>% exp
+mu2.true <- (cbind(1,x1,x2,x3) %*% beta2_use) %>% exp
+sig1.true <- (cbind(1,x2) %*% alpha1_use) %>% exp
+sig2.true <- (cbind(1,x2) %*% alpha2_use) %>% exp
+rho.true <- (cbind(1,x1,x2,x3) %*% tau_use) %>% tanh
+p1.true <- (cbind(1,x2) %*% kappa1_use) %>% sigmoid
+p2.true <- (cbind(1,x2) %*% kappa2_use) %>% sigmoid
+
+## simulate data from nbnb Gaussian copula model ##
+y1y2 <- copnb.sim(p1.true, p2.true, mu1.true, mu2.true, sig1.true, sig2.true, rho.true, "Gaussian")
+ourdat <- cbind(y1y2, x1, x2, x3) %>% as.data.frame
+
+## specify how the different parameters depend on covariates ##
+eq1 <- y1 ~ x1 + x2 + x3
+eq2 <- y2 ~ x1 + x2 + x3
+eq3 <- ~ x2
+eq4 <- ~ x2
+eq5 <- ~ x1 + x2 + x3
+eqlist <- list(eq1, eq2, eq3, eq4, eq5)
+
+## run the fitting function ##
+out_obj <- FAST.CoExpress.nb(formula = eqlist,
+                             data = ourdat,
+                             copula = "Gaussian")
+
+round(out_obj$output.mat, 4)
+```
 
 
 
