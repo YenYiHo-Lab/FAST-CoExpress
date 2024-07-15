@@ -6,16 +6,6 @@ library(mvtnorm)
 library(pscl)
 
 
-
-# sigmoid <- function(x) {
-#   exp(x) / (exp(x) + 1)
-# }
-# 
-# logit <- function(x) {
-#   log(x / (1 - x))
-# }
-
-
 copnb.sim.individual <- function(p1, p2, mu1, mu2, sig1, sig2, rho, copulafun){
   
   Cop <- do.call(copulafun, args = list(param=rho)) 
