@@ -68,6 +68,8 @@ The output is a list containing coefficient estimates, standard errors, and p-va
 
 We conducted simulation studies on the coverage, power, and robustness of the FAST-CoExpress method with negative binomial marginals and a Gaussian copula. These studies can be found in the `simulations` folder of this repository.
 
+## Real Data Analysis
+We performed differential co-expression analysis on tumor CID4471 from gene expression omnibus dataset GSE176078 (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM5354529). Code for the analysis can be found in the simulations folder of this repository.
 
 ## Example Usage
 
