@@ -92,13 +92,13 @@ x2 <- rbinom(n=n, size=1, prob=0.59)
 x3 <- x1*x2
 
 ## calculate parameter values ##
-mu1.true <- (cbind(1,x1,x2,x3) %*% beta1_use) %>% exp
-mu2.true <- (cbind(1,x1,x2,x3) %*% beta2_use) %>% exp
-sig1.true <- (cbind(1,x2) %*% alpha1_use) %>% exp
-sig2.true <- (cbind(1,x2) %*% alpha2_use) %>% exp
-rho.true <- (cbind(1,x1,x2,x3) %*% tau_use) %>% tanh
-p1.true <- (cbind(1,x2) %*% kappa1_use) %>% sigmoid
-p2.true <- (cbind(1,x2) %*% kappa2_use) %>% sigmoid
+mu1.true <- (cbind(1,x1,x2,x3) %*% beta1_use) %>% exp %>% c
+mu2.true <- (cbind(1,x1,x2,x3) %*% beta2_use) %>% exp %>% c
+sig1.true <- (cbind(1,x2) %*% alpha1_use) %>% exp %>% c
+sig2.true <- (cbind(1,x2) %*% alpha2_use) %>% exp %>% c
+rho.true <- (cbind(1,x1,x2,x3) %*% tau_use) %>% tanh %>% c
+p1.true <- (cbind(1,x2) %*% kappa1_use) %>% sigmoid %>% c
+p2.true <- (cbind(1,x2) %*% kappa2_use) %>% sigmoid %>% c
 
 ## simulate data from nbnb Gaussian copula model ##
 y1y2 <- copnb.sim(p1.true, p2.true, mu1.true, mu2.true, sig1.true, sig2.true, rho.true, "Gaussian")
