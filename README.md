@@ -41,35 +41,34 @@ where $\eta_k$ is a link function ensuring the $k^{\text{th}}$ parameter does no
 
 ## Usage
 
-We will demonstrate the FAST-CoExpress model for the Gaussian copula case with negative binomial marginals. In this case, $\eta_k = \log$ for $k=1,\dots,4$ and $\eta_5 = \text{atanh}$.  
+The fitting function for the FAST-CoExpress model with negative binomial marginals is called `FAST.CoExpress.nb` and is contained in the `FAST_CoExpress_NB.R` folder of this repository. For the negative binomial case, we have  $\eta_k = \log$ for $k=1,\dots,4$. 
 
-The function to fit this model is called `FAST.CoExpress.nb` and is used in the following way:
+The function works as follows:
 
 ```{r}
-source("/path/to/FAST_CoExpress_NB.R")
-
-FAST.CoExpress.nb(eq1 = y1 ~ x1 + x2 + x3,
-                  eq2 = y2 ~ x1 + x2 + x3,
-                  eq3 = ~ x2,
-                  eq4 = ~ x2, 
-                  eq5 = ~ x1 + x2 + x3,
-                  copula = "Gaussian",
-                  data = ourdat)
+FAST.CoExpress.nb(formula,
+                  copula,
+                  data)
 ```
-
-
-
 Parameters:
+* `formula`: A list of five formulas specifying the covariate-dependence of the different parameters.
+* `copula`: A string specifying one of the following copulas: "Gaussian", "Frank", "Gumbel", "Joe", "Clayton".
+* `data`: A data.frame whose column names correspond to the variables referenced in the formula list.
+
+where the 5 elements of the `formula` list are:
 * `eq1`: Formula object specifying the covariate-dependence of $\mu_1$.
 * `eq2`: Formula object specifying the covariate-dependence of $\mu_2$.
 * `eq3`: Formula object specifying the covariate-dependence of $\sigma_1$ and $p_1$.
 * `eq4`: Formula object specifying the covariate-dependence of $\sigma_2$ and $p_2$.
 * `eq5`: Formula object specifying the covariate-dependence of $\rho$.
-* `copula`: A string specifying one of the following copulas: "Gaussian", "Frank", "Gumbel", "Joe", "Clayton".
-* `data`: A data.frame whose column names correspond to the variables referenced in the formula list.
-
 
 The output is a list containing coefficient estimates, standard errors, and p-values, along with the value of the log-likelihood of the fitted model and the variance-covariance matrix of the coefficients.
+
+## Simulation Studies
+
+We conducted simulation studies on the coverage, power, and robustness of the FAST-CoExpress method with negative binomial marginals and a Gaussian copula. These studies can be found in the `simulations` folder of this repository.
+
+
 
 
 
