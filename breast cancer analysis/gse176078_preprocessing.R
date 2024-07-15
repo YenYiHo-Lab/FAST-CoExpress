@@ -3,8 +3,6 @@ library(R.utils)
 library(sctransform)
 library(Seurat)
 
-#gunzip("/path/to/GSM5354525_CID44041.tar.gz")
-
 data_dir <- "/path/to/CID4471/"
 
 matrix_path <- paste(data_dir,"count_matrix_sparse.mtx",sep="")
