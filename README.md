@@ -22,7 +22,7 @@ $$
 \end{aligned}
 $$
 
-where $f_1, f_2$ are the marginal distributions of $Y_1, Y_2$, $g$ is the distribution function from a bivariate copula with association parameter $\rho$, and $p_1, p_2$ parameters representing the probability that an observation from their respective marginal gets zeroed out by a drop-out event. Parameters can be made dependent on covariates in the following way 
+where $f_1, f_2$ are the marginal distributions of $Y_1, Y_2$, $g$ is the distribution function from a bivariate copula with association parameter $\rho$, and $p_1$, $p_2$ are parameters representing the probability of an observation from their respective marginal being zeroed out by a drop-out event. Parameters can be made dependent on covariates in the following way 
 
 $$
 \begin{align}
