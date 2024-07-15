@@ -1,4 +1,4 @@
-source("C:/Users/andyb/Downloads/FAST_CoExpress_functions.R")
+source("/path/to/FAST_CoExpress_functions.R")
 library(MASS)
 library(truncnorm)
 library(rCoCoA)
