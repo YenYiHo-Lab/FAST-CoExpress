@@ -41,11 +41,13 @@ where $\eta_k$ is a link function ensuring the $k^{\text{th}}$ parameter does no
 
 ## Fitting Function
 
-The fitting function for the FAST-CoExpress model with negative binomial marginals is called `FAST.CoExpress.nb` and is contained in the `FAST_CoExpress_functions.R` folder of this repository. For the negative binomial case, we have  $\eta_k = \log$ for $k=1,\dots,4$. 
+The fitting function for the FAST-CoExpress model with negative binomial marginals is called `FAST.CoExpress.nb`. For the negative binomial case, we have  $\eta_k = \log$ for $k=1,\dots,4$. 
 
 The function works as follows:
 
 ```{r}
+source("/path/to/FAST_CoExpress_functions.R")
+
 FAST.CoExpress.nb(formula, copula, data)
 ```
 Parameters:
