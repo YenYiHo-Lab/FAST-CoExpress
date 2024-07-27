@@ -57,6 +57,8 @@ Parameters:
   * `[[3]]`: Covariate-dependence of $\sigma_1$ and $p_1$.
   * `[[4]]`: Covariate-dependence of $\sigma_2$ and $p_2$.
   * `[[5]]`: Covariate-dependence of $\rho$.
+  * `[[6]]`: Covariate-dependence of $p_1$.
+  * `[[7]]`: Covariate-dependence of $p_2$.
 * `copula`: A string specifying one of the following copulas: "Gaussian", "Frank", "Gumbel", "Joe", "Clayton".
 * `data`: A data.frame whose column names correspond to the variables referenced in the formula list.
 
@@ -113,6 +115,8 @@ eq2 <- y2 ~ x1 + x2 + x3
 eq3 <- ~ x2
 eq4 <- ~ x2
 eq5 <- ~ x1 + x2 + x3
+eq6 <- ~ x2
+eq7 <- ~ x2
 eqlist <- list(eq1, eq2, eq3, eq4, eq5)
 
 ## run the fitting function ##
