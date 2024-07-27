@@ -2,8 +2,7 @@ library(glmGamPoi)
 library(R.utils)
 library(sctransform)
 library(Seurat)
-
-#gunzip("/path/to/GSM5354525_CID44041.tar.gz")
+#gunzip("/path/to/GSM5354529_CID4471.tar.gz")
 data_dir <- "/path/to/CID4471/"
 
 
