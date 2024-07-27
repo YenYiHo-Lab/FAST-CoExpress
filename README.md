@@ -52,13 +52,13 @@ FAST.CoExpress.nb(formula, copula, data)
 ```
 Parameters:
 * `formula`: A list of five formula objects specifying the covariate-dependence of the different parameters.
-  * `[[1]]`: Covariate-dependence of $\mu_1$.
-  * `[[2]]`: Covariate-dependence of $\mu_2$.
-  * `[[3]]`: Covariate-dependence of $\sigma_1$.
-  * `[[4]]`: Covariate-dependence of $\sigma_2$.
-  * `[[5]]`: Covariate-dependence of $\rho$.
-  * `[[6]]`: Covariate-dependence of $p_1$.
-  * `[[7]]`: Covariate-dependence of $p_2$.
+  * `[[1]]`: Covariate-dependence of $\mu_1$
+  * `[[2]]`: Covariate-dependence of $\mu_2$
+  * `[[3]]`: Covariate-dependence of $\sigma_1$
+  * `[[4]]`: Covariate-dependence of $\sigma_2$
+  * `[[5]]`: Covariate-dependence of $\rho$
+  * `[[6]]`: Covariate-dependence of $p_1$
+  * `[[7]]`: Covariate-dependence of $p_2$
 * `copula`: A string specifying one of the following copulas: "Gaussian", "Frank", "Gumbel", "Joe", "Clayton".
 * `data`: A data.frame whose column names correspond to the variables referenced in the formula list.
 
