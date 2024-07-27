@@ -30,7 +30,7 @@ $$
  \eta_2(\mu_{2}) &= \mathbf{x_{s_2}}^{\top} \mathbf{\beta_2} \\
  \eta_3(\sigma_{1}) &= \mathbf{x_{s_3}}^{\top} \mathbf{\alpha_1} \\
  \eta_4(\sigma_{2}) &= \mathbf{x_{s_4}}^{\top} \mathbf{\alpha_2} \\
- \eta_5(\rho) &= \mathbf{x_{s_5}}^{\top} \mathbf{\tau_1} \\
+ \eta_5(\rho) &= \mathbf{x_{s_5}}^{\top} \mathbf{\tau} \\
  \text{logit}(p_{1}) &= \mathbf{x_{s_6}}^{\top} \mathbf{\kappa_1} \\
  \text{logit}(p_{2}) &=  \mathbf{x_{s_7}}^{\top} \mathbf{\kappa_2} \\
  \end{align}
