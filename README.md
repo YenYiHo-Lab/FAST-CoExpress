@@ -72,7 +72,7 @@ We conducted simulation studies on the coverage, power, and robustness of the FA
 
 ## Real Data Analysis
 
-We performed differential co-expression analysis on breast cancer data from gene expression omnibus GSE176078. Code for the analysis can be found in the simulations folder of this repository, and the data used can be found at the following link: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM5354529.
+We performed differential co-expression analysis on breast cancer data from gene expression omnibus GSE176078. Code for the analysis can be found in the `breast cancer analysis` folder of this repository, and the data used can be found at the following link: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM5354529.
 
 ## Example Usage
 
