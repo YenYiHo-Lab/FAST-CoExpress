@@ -51,7 +51,7 @@ source("/path/to/FAST_CoExpress_functions.R")
 FAST.CoExpress.nb(formula, copula, data)
 ```
 Parameters:
-* `formula`: A list of five formula objects specifying the covariate-dependence of the different parameters.
+* `formula`: A list of seven formula objects specifying the covariate-dependence of the different parameters.
   * `[[1]]`: Covariate-dependence of $\mu_1$
   * `[[2]]`: Covariate-dependence of $\mu_2$
   * `[[3]]`: Covariate-dependence of $\sigma_1$
