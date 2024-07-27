@@ -117,7 +117,7 @@ eq4 <- ~ x2
 eq5 <- ~ x1 + x2 + x3
 eq6 <- ~ x2
 eq7 <- ~ x2
-eqlist <- list(eq1, eq2, eq3, eq4, eq5)
+eqlist <- list(eq1, eq2, eq3, eq4, eq5, eq6, eq7)
 
 ## run the fitting function ##
 out_obj <- FAST.CoExpress.nb(formula = eqlist,
