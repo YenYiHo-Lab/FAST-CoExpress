@@ -22,7 +22,9 @@ eq2 <- y2 ~ 1
 eq3 <- ~ 1
 eq4 <- ~ 1
 eq5 <- ~ x1
-eqlist <- list(eq1, eq2, eq3, eq4, eq5)
+eq6 <- ~ 1
+eq7 <- ~ 1
+eqlist <- list(eq1, eq2, eq3, eq4, eq5, eq6, eq7)
 
 
 
