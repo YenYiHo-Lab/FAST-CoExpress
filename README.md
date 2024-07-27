@@ -54,8 +54,8 @@ Parameters:
 * `formula`: A list of five formula objects specifying the covariate-dependence of the different parameters.
   * `[[1]]`: Covariate-dependence of $\mu_1$.
   * `[[2]]`: Covariate-dependence of $\mu_2$.
-  * `[[3]]`: Covariate-dependence of $\sigma_1$ and $p_1$.
-  * `[[4]]`: Covariate-dependence of $\sigma_2$ and $p_2$.
+  * `[[3]]`: Covariate-dependence of $\sigma_1$.
+  * `[[4]]`: Covariate-dependence of $\sigma_2$.
   * `[[5]]`: Covariate-dependence of $\rho$.
   * `[[6]]`: Covariate-dependence of $p_1$.
   * `[[7]]`: Covariate-dependence of $p_2$.
