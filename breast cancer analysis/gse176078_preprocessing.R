@@ -92,10 +92,10 @@ ourdf <- ourdf[,!(colnames(ourdf) %in% unique(c(mycaf_small, icaf_small)))]
                      
 # remove genes which have over 70% zeros
 icaf_manyzeros <- apply(ourdf[ourdf$cell_type=="CAFs MSC iCAF-like",1:(ncol(ourdf)-1)], 2, function(a) mean(a==0))>0.3
-icaf_manyzeros <- names(icaf_small[icaf_small==TRUE])
+icaf_manyzeros <- names(icaf_manyzeros[icaf_manyzeros==TRUE])
 
 mycaf_manyzeros <- apply(ourdf[ourdf$cell_type=="CAFs myCAF-like",1:(ncol(ourdf)-1)], 2, function(a) mean(a==0))>0.3
-mycaf_manyzeros <- names(mycaf_small[icaf_small==TRUE])
+mycaf_manyzeros <- names(mycaf_manyzeros[mycaf_manyzeros==TRUE])
 
 ourdf <- ourdf[,!(colnames(ourdf) %in% unique(c(icaf_manyzeros, mycaf_manyzeros)))]
                          
